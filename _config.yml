@@ -1,0 +1,23 @@
+title: HJ Chang | Portfolio
+email: hyounjun.chang@example.com
+description: "Embedded systems engineer — Linux, C, hardware projects"
+url: "https://hyounjunchang.github.io"
+baseurl: ""
+author: Hyounjun Chang
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: article
+
+theme: minima
+
+plugins:
+  - jekyll-feed

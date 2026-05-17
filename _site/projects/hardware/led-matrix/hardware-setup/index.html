@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>16x16 WS2812B LED Matrix — Hardware Setup | HJ Chang | Portfolio</title>
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+  <a class="nav-brand" href="/">HJ Chang</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/projects/">Projects</a></li>
+    <li><a href="/about/">About</a></li>
+  </ul>
+</nav>
+  <main class="container">
+    <div class="breadcrumb">
+  <a href="/">Home</a> /
+  <a href="/projects/">Projects</a> /
+  <a href="/projects/hardware">Hardware</a> /
+  <a href="/projects/hardware/led-matrix">WS2812B LED Matrix</a> /
+  <span>16x16 WS2812B LED Matrix — Hardware Setup</span>
+</div>
+
+<article class="article-content">
+  <header class="article-header">
+    <h1>16x16 WS2812B LED Matrix — Hardware Setup</h1>
+    <p class="article-date">March 01, 2026</p>
+    
+    <div class="tags">
+      <span class="tag">Raspberry Pi</span><span class="tag">WS2812B</span><span class="tag">SPI</span><span class="tag">hardware</span>
+    </div>
+    
+  </header>
+  <h2 id="overview">Overview</h2>
+
+<p>A 16x16 grid of WS2812B addressable RGB LEDs driven by a Raspberry Pi over SPI using DMA via the <code class="language-plaintext highlighter-rouge">rpi-ws281x</code> library.</p>
+
+<h2 id="hardware-details">Hardware Details</h2>
+
+<ul>
+  <li><strong>LEDs</strong>: WS2812B (256 total)</li>
+  <li><strong>Layout</strong>: Serpentine/zigzag routing on PCB — odd rows run right-to-left</li>
+  <li><strong>Interface</strong>: SPI with DMA for timing-accurate signal generation</li>
+  <li><strong>Power</strong>: External 5V supply; logic level shifted from 3.3V Pi GPIO</li>
+</ul>
+
+<h2 id="serpentine-remapping">Serpentine Remapping</h2>
+
+<p>Because the PCB routes rows in alternating directions, pixel index remapping is required:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">remap</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">y</span> <span class="o">*</span> <span class="n">WIDTH</span> <span class="o">+</span> <span class="n">x</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="k">return</span> <span class="n">y</span> <span class="o">*</span> <span class="n">WIDTH</span> <span class="o">+</span> <span class="p">(</span><span class="n">WIDTH</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+</article>
+
+<div class="article-nav">
+  <a href="/projects/hardware/led-matrix">← Back to WS2812B LED Matrix</a>
+</div>
+  </main>
+  <footer class="footer">
+  <p>© 2026 Hyounjun Chang ·
+    <a href="https://github.com/hyounjunchang" target="_blank">GitHub</a>
+  </p>
+</footer>
+</body>
+</html>

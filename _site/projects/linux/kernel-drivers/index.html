@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kernel Drivers | HJ Chang | Portfolio</title>
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+  <a class="nav-brand" href="/">HJ Chang</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/projects/">Projects</a></li>
+    <li><a href="/about/">About</a></li>
+  </ul>
+</nav>
+  <main class="container">
+    <div class="breadcrumb">
+  <a href="/">Home</a> /
+  <a href="/projects/">Projects</a> /
+  <a href="/projects/linux">Linux</a> /
+  <span>Kernel Drivers</span>
+</div>
+
+<div class="subtopic-header">
+  <h1>Kernel Drivers</h1>
+  <p class="subtopic-desc">Building Linux character device drivers, ioctl interfaces, and kernel modules.</p>
+</div>
+
+<div class="overview-box">
+  <h2>Overview</h2>
+  <p>This section covers the development of out-of-tree Linux kernel modules, focusing on the <code class="language-plaintext highlighter-rouge">aesdchar</code> character device driver. Topics include circular buffer management in kernel space, implementing <code class="language-plaintext highlighter-rouge">read</code>, <code class="language-plaintext highlighter-rouge">write</code>, <code class="language-plaintext highlighter-rouge">llseek</code>, and <code class="language-plaintext highlighter-rouge">ioctl</code> system calls, and integrating the driver with a userspace socket server.</p>
+
+</div>
+
+<h2 class="articles-heading">Articles</h2>
+<ul class="article-list">
+  
+  
+  <li class="article-item">
+    <a href="/projects/linux/kernel-drivers/aesdchar-driver/">aesdchar: Character Device Driver</a>
+    <p>Building a circular-buffer character device driver as a Linux kernel module.</p>
+    
+    <div class="tags">
+      <span class="tag">kernel</span><span class="tag">C</span><span class="tag">driver</span><span class="tag">ECEN5713</span>
+    </div>
+    
+  </li>
+  
+  <li class="article-item">
+    <a href="/projects/linux/kernel-drivers/ioctl-llseek/">ioctl & llseek Integration</a>
+    <p>Implementing AESDCHAR_IOCSEEKTO ioctl and custom llseek in a kernel driver.</p>
+    
+    <div class="tags">
+      <span class="tag">kernel</span><span class="tag">ioctl</span><span class="tag">llseek</span><span class="tag">C</span>
+    </div>
+    
+  </li>
+  
+</ul>
+  </main>
+  <footer class="footer">
+  <p>© 2026 Hyounjun Chang ·
+    <a href="https://github.com/hyounjunchang" target="_blank">GitHub</a>
+  </p>
+</footer>
+</body>
+</html>

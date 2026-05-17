@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AArch64 Embedded Linux with Buildroot & QEMU | HJ Chang | Portfolio</title>
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+  <a class="nav-brand" href="/">HJ Chang</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/projects/">Projects</a></li>
+    <li><a href="/about/">About</a></li>
+  </ul>
+</nav>
+  <main class="container">
+    <div class="breadcrumb">
+  <a href="/">Home</a> /
+  <a href="/projects/">Projects</a> /
+  <a href="/projects/linux">Linux</a> /
+  <a href="/projects/linux/buildroot-qemu">Buildroot & QEMU</a> /
+  <span>AArch64 Embedded Linux with Buildroot & QEMU</span>
+</div>
+
+<article class="article-content">
+  <header class="article-header">
+    <h1>AArch64 Embedded Linux with Buildroot & QEMU</h1>
+    <p class="article-date">February 01, 2026</p>
+    
+    <div class="tags">
+      <span class="tag">Buildroot</span><span class="tag">QEMU</span><span class="tag">AArch64</span><span class="tag">embedded</span>
+    </div>
+    
+  </header>
+  <h2 id="overview">Overview</h2>
+
+<p>This project sets up a complete embedded Linux system using Buildroot, cross-compiled for AArch64 and booted in QEMU. The goal is a reproducible environment for developing and testing out-of-tree kernel modules.</p>
+
+<h2 id="key-steps">Key Steps</h2>
+
+<ol>
+  <li>Configure Buildroot for <code class="language-plaintext highlighter-rouge">qemu_aarch64_virt_defconfig</code></li>
+  <li>Add out-of-tree kernel module via a custom Buildroot package</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">modules_install</code> with <code class="language-plaintext highlighter-rouge">INSTALL_MOD_PATH</code> to place <code class="language-plaintext highlighter-rouge">.ko</code> in the standard module tree</li>
+  <li>Write an init script (S-file) with execute permissions to <code class="language-plaintext highlighter-rouge">modprobe</code> the driver on boot</li>
+  <li>Create <code class="language-plaintext highlighter-rouge">/dev/aesdchar</code> via <code class="language-plaintext highlighter-rouge">mknod</code> if udev is not available</li>
+</ol>
+
+<h2 id="issues-encountered">Issues Encountered</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">BUILD_CMDS</code> macro invocation errors in the <code class="language-plaintext highlighter-rouge">.mk</code> file</li>
+  <li>Stale duplicate build directories causing cached failures</li>
+  <li>Missing execute bit on init scripts</li>
+  <li><code class="language-plaintext highlighter-rouge">modprobe</code> failing due to missing <code class="language-plaintext highlighter-rouge">modules.dep</code> — fixed by running <code class="language-plaintext highlighter-rouge">depmod</code></li>
+</ul>
+
+</article>
+
+<div class="article-nav">
+  <a href="/projects/linux/buildroot-qemu">← Back to Buildroot & QEMU</a>
+</div>
+  </main>
+  <footer class="footer">
+  <p>© 2026 Hyounjun Chang ·
+    <a href="https://github.com/hyounjunchang" target="_blank">GitHub</a>
+  </p>
+</footer>
+</body>
+</html>

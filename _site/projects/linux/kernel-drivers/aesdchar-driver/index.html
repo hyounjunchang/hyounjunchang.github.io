@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>aesdchar: Character Device Driver | HJ Chang | Portfolio</title>
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+  <a class="nav-brand" href="/">HJ Chang</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/projects/">Projects</a></li>
+    <li><a href="/about/">About</a></li>
+  </ul>
+</nav>
+  <main class="container">
+    <div class="breadcrumb">
+  <a href="/">Home</a> /
+  <a href="/projects/">Projects</a> /
+  <a href="/projects/linux">Linux</a> /
+  <a href="/projects/linux/kernel-drivers">Kernel Drivers</a> /
+  <span>aesdchar: Character Device Driver</span>
+</div>
+
+<article class="article-content">
+  <header class="article-header">
+    <h1>aesdchar: Character Device Driver</h1>
+    <p class="article-date">January 01, 2026</p>
+    
+    <div class="tags">
+      <span class="tag">kernel</span><span class="tag">C</span><span class="tag">driver</span><span class="tag">ECEN5713</span>
+    </div>
+    
+  </header>
+  <h2 id="overview">Overview</h2>
+
+<p><code class="language-plaintext highlighter-rouge">aesdchar</code> is an out-of-tree Linux kernel module implementing a character device (<code class="language-plaintext highlighter-rouge">/dev/aesdchar</code>) backed by a 10-slot circular buffer. Each <code class="language-plaintext highlighter-rouge">write()</code> appends a command entry; each <code class="language-plaintext highlighter-rouge">read()</code> returns data from the current file position.</p>
+
+<h2 id="key-implementation-details">Key Implementation Details</h2>
+
+<h3 id="circular-buffer">Circular Buffer</h3>
+
+<ul>
+  <li>10 fixed slots; oldest entry is evicted when full</li>
+  <li>Tracks <code class="language-plaintext highlighter-rouge">total_bytes_evicted</code> for correct <code class="language-plaintext highlighter-rouge">llseek</code> offset accounting</li>
+</ul>
+
+<h3 id="system-call-implementations">System Call Implementations</h3>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">write</code></strong>: Appends data until a newline, then commits the entry</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">read</code></strong>: Returns bytes from the current file position across entry boundaries</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">llseek</code></strong>: Supports <code class="language-plaintext highlighter-rouge">SEEK_SET</code>, <code class="language-plaintext highlighter-rouge">SEEK_CUR</code>, <code class="language-plaintext highlighter-rouge">SEEK_END</code> with eviction-aware offsets</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ioctl</code></strong> (<code class="language-plaintext highlighter-rouge">AESDCHAR_IOCSEEKTO</code>): Seeks to a specific entry index + byte offset</li>
+</ul>
+
+<h2 id="bugs-fixed">Bugs Fixed</h2>
+
+<ul>
+  <li>Deadlock from calling <code class="language-plaintext highlighter-rouge">down()</code> twice on the same mutex</li>
+  <li>Off-by-one in eviction count tracking</li>
+  <li>File position not snapping correctly after eviction</li>
+</ul>
+
+<h2 id="source">Source</h2>
+
+<p><a href="https://github.com/hyounjunchang">GitHub Repository</a></p>
+
+</article>
+
+<div class="article-nav">
+  <a href="/projects/linux/kernel-drivers">← Back to Kernel Drivers</a>
+</div>
+  </main>
+  <footer class="footer">
+  <p>© 2026 Hyounjun Chang ·
+    <a href="https://github.com/hyounjunchang" target="_blank">GitHub</a>
+  </p>
+</footer>
+</body>
+</html>

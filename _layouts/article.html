@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<div class="breadcrumb">
+  <a href="{{ '/' | relative_url }}">Home</a> /
+  <a href="{{ '/projects/' | relative_url }}">Projects</a> /
+  <a href="{{ '/projects/' | append: page.topic | relative_url }}">{{ page.topic_title }}</a> /
+  <a href="{{ '/projects/' | append: page.topic | append: '/' | append: page.subtopic | relative_url }}">{{ page.subtopic_title }}</a> /
+  <span>{{ page.title }}</span>
+</div>
+
+<article class="article-content">
+  <header class="article-header">
+    <h1>{{ page.title }}</h1>
+    {% if page.date %}<p class="article-date">{{ page.date | date: "%B %d, %Y" }}</p>{% endif %}
+    {% if page.tags %}
+    <div class="tags">
+      {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+    </div>
+    {% endif %}
+  </header>
+  {{ content }}
+</article>
+
+<div class="article-nav">
+  <a href="{{ '/projects/' | append: page.topic | append: '/' | append: page.subtopic | relative_url }}">← Back to {{ page.subtopic_title }}</a>
+</div>

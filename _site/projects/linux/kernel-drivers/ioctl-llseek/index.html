@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ioctl & llseek Integration | HJ Chang | Portfolio</title>
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+  <a class="nav-brand" href="/">HJ Chang</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/projects/">Projects</a></li>
+    <li><a href="/about/">About</a></li>
+  </ul>
+</nav>
+  <main class="container">
+    <div class="breadcrumb">
+  <a href="/">Home</a> /
+  <a href="/projects/">Projects</a> /
+  <a href="/projects/linux">Linux</a> /
+  <a href="/projects/linux/kernel-drivers">Kernel Drivers</a> /
+  <span>ioctl & llseek Integration</span>
+</div>
+
+<article class="article-content">
+  <header class="article-header">
+    <h1>ioctl & llseek Integration</h1>
+    <p class="article-date">January 15, 2026</p>
+    
+    <div class="tags">
+      <span class="tag">kernel</span><span class="tag">ioctl</span><span class="tag">llseek</span><span class="tag">C</span>
+    </div>
+    
+  </header>
+  <h2 id="overview">Overview</h2>
+
+<p>This article covers adding <code class="language-plaintext highlighter-rouge">ioctl</code> and <code class="language-plaintext highlighter-rouge">llseek</code> support to the <code class="language-plaintext highlighter-rouge">aesdchar</code> driver, enabling userspace programs to seek directly to specific circular buffer entries.</p>
+
+<h2 id="aesdchar_iocseekto">AESDCHAR_IOCSEEKTO</h2>
+
+<p>The custom ioctl command accepts a struct with:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">write_cmd</code> — index of the target circular buffer entry</li>
+  <li><code class="language-plaintext highlighter-rouge">write_cmd_offset</code> — byte offset within that entry</li>
+</ul>
+
+<p>The kernel handler translates these into an absolute file offset, accounting for evicted bytes.</p>
+
+<h2 id="llseek">llseek</h2>
+
+<p>Custom <code class="language-plaintext highlighter-rouge">llseek</code> handles:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">SEEK_SET</code> — absolute position from start of all written data</li>
+  <li><code class="language-plaintext highlighter-rouge">SEEK_CUR</code> — relative to current position</li>
+  <li><code class="language-plaintext highlighter-rouge">SEEK_END</code> — relative to end of all buffered data</li>
+</ul>
+
+<p>Key insight: kernel module state persists across userspace process restarts — <code class="language-plaintext highlighter-rouge">rmmod</code>/<code class="language-plaintext highlighter-rouge">insmod</code> is required to fully reset driver state during development.</p>
+
+</article>
+
+<div class="article-nav">
+  <a href="/projects/linux/kernel-drivers">← Back to Kernel Drivers</a>
+</div>
+  </main>
+  <footer class="footer">
+  <p>© 2026 Hyounjun Chang ·
+    <a href="https://github.com/hyounjunchang" target="_blank">GitHub</a>
+  </p>
+</footer>
+</body>
+</html>

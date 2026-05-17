@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tetris-Style Falling Color Animation | HJ Chang | Portfolio</title>
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+  <a class="nav-brand" href="/">HJ Chang</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/projects/">Projects</a></li>
+    <li><a href="/about/">About</a></li>
+  </ul>
+</nav>
+  <main class="container">
+    <div class="breadcrumb">
+  <a href="/">Home</a> /
+  <a href="/projects/">Projects</a> /
+  <a href="/projects/hardware">Hardware</a> /
+  <a href="/projects/hardware/led-matrix">WS2812B LED Matrix</a> /
+  <span>Tetris-Style Falling Color Animation</span>
+</div>
+
+<article class="article-content">
+  <header class="article-header">
+    <h1>Tetris-Style Falling Color Animation</h1>
+    <p class="article-date">March 15, 2026</p>
+    
+    <div class="tags">
+      <span class="tag">Raspberry Pi</span><span class="tag">animation</span><span class="tag">C</span><span class="tag">WS2812B</span>
+    </div>
+    
+  </header>
+  <h2 id="overview">Overview</h2>
+
+<p>A Tetris-inspired animation where columns of color fall from the top of the 16x16 LED matrix, stack at the bottom, and repeat with new colors.</p>
+
+<h2 id="implementation">Implementation</h2>
+
+<p>Each column tracks a falling head position. On each frame:</p>
+<ol>
+  <li>Advance the head down by one row</li>
+  <li>Light the head pixel with the column’s color</li>
+  <li>When the head hits the bottom or a stacked pixel, lock it and start a new head</li>
+</ol>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">update_column</span><span class="p">(</span><span class="kt">int</span> <span class="n">col</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">head</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">stack_height</span><span class="p">[</span><span class="n">col</span><span class="p">])</span> <span class="p">{</span>
+        <span class="n">set_pixel</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">head</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">column_color</span><span class="p">[</span><span class="n">col</span><span class="p">]);</span>
+        <span class="n">head</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">stack_height</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">head</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">column_color</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">random_color</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="build-system">Build System</h2>
+
+<p>The project uses a modern Makefile with incremental builds and automatic header dependency tracking via <code class="language-plaintext highlighter-rouge">-MMD -MP</code> gcc flags.</p>
+
+</article>
+
+<div class="article-nav">
+  <a href="/projects/hardware/led-matrix">← Back to WS2812B LED Matrix</a>
+</div>
+  </main>
+  <footer class="footer">
+  <p>© 2026 Hyounjun Chang ·
+    <a href="https://github.com/hyounjunchang" target="_blank">GitHub</a>
+  </p>
+</footer>
+</body>
+</html>

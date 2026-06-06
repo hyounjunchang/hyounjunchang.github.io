@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<div class="breadcrumb">
+  <a href="{{ '/' | relative_url }}">Home</a> /
+  <a href="{{ '/projects/' | relative_url }}">Projects</a> /
+  <span>{{ page.title }}</span>
+</div>
+
+<div class="topic-header">
+  <h1>{{ page.title }}</h1>
+  <p class="topic-desc">{{ page.description }}</p>
+</div>
+
+<div class="subtopic-grid">
+  {% assign subtopics = site.projects | where: "layout", "subtopic" | where: "topic", page.slug %}
+  {% for subtopic in subtopics %}
+  <a class="subtopic-card" href="{{ subtopic.url | relative_url }}">
+    <h2>{{ subtopic.title }}</h2>
+    <p>{{ subtopic.description }}</p>
+    <span class="article-count">View articles →</span>
+  </a>
+  {% endfor %}
+</div>

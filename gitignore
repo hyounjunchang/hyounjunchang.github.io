@@ -1,0 +1,38 @@
+# Jekyll build output
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Bundler
+.bundle/
+vendor/
+
+# Ruby
+*.gem
+*.rbc
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Windows
+ehthumbs.db
+$RECYCLE.BIN/
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs & temp files
+*.log
+*.tmp
+*.bak
+
+# Environment
+.env
+.env.local

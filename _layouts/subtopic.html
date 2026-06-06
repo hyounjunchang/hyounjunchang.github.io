@@ -1,0 +1,52 @@
+---
+layout: default
+---
+<div class="breadcrumb">
+  <a href="{{ '/' | relative_url }}">Home</a> /
+  <a href="{{ '/projects/' | relative_url }}">Projects</a> /
+  <a href="{{ '/projects/' | append: page.topic | relative_url }}">{{ page.topic_title }}</a> /
+  <span>{{ page.title }}</span>
+</div>
+
+<div class="subtopic-header">
+  <h1>{{ page.title }}</h1>
+  <p class="subtopic-desc">{{ page.description }}</p>
+</div>
+
+<div class="overview-box">
+  <h2>Overview</h2>
+  {{ content }}
+</div>
+
+{% if page.pdf %}
+<div class="pdf-section">
+  <div class="pdf-toolbar">
+    <span class="pdf-label">Project Report</span>
+    <a href="{{ page.pdf | relative_url }}" download class="pdf-download-btn">&#8595; Download PDF</a>
+  </div>
+  <iframe
+    class="pdf-viewer"
+    src="{{ page.pdf | relative_url }}"
+    title="Project Report for {{ page.title }}"
+    allowfullscreen>
+    <p>Your browser does not support embedded PDFs.
+       <a href="{{ page.pdf | relative_url }}">Download the PDF</a> instead.</p>
+  </iframe>
+</div>
+{% endif %}
+
+<h2 class="articles-heading">Articles</h2>
+<ul class="article-list">
+  {% assign articles = site.projects | where: "layout", "article" | where: "subtopic", page.slug %}
+  {% for article in articles %}
+  <li class="article-item">
+    <a href="{{ article.url | relative_url }}">{{ article.title }}</a>
+    <p>{{ article.description }}</p>
+    {% if article.tags %}
+    <div class="tags">
+      {% for tag in article.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+    </div>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>

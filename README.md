@@ -15,10 +15,10 @@ Personal portfolio and project site built with Jekyll and hosted on GitHub Pages
 gem install bundler jekyll
 ```
 
-Make sure the gem bin folder is on your PATH. If `jekyll` is not recognized after install, add this to your PATH permanently:
+Make sure the gem bin folder is on your PATH. If `jekyll` is not recognized after install, add this permanently:
 
 ```powershell
-[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Users\<you>\.local\share\gem\ruby\3.4.0\bin", "User")
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\\Users\\<you>\\.local\\share\\gem\\ruby\\3.4.0\\bin", "User")
 ```
 
 Then close and reopen PowerShell.
@@ -39,7 +39,7 @@ bundle exec jekyll serve
 
 Open your browser to [http://localhost:4000](http://localhost:4000).
 
-Jekyll will watch for file changes and rebuild automatically. Refresh your browser to see updates. Press `Ctrl+C` to stop the server.
+Jekyll watches for file changes and rebuilds automatically. Refresh your browser to see updates. Press `Ctrl+C` to stop the server.
 
 ### Deploy to GitHub Pages
 
@@ -55,11 +55,113 @@ The live site updates at `https://hyounjunchang.github.io` within a minute or tw
 
 ---
 
-## 2. Add Photos to an Article
+## 2. Add a New Topic
 
-### Step 1 — Add your image files
+A topic is a top-level category shown on the home page (e.g. "Photography", "Quantitative Finance").
 
-Place your images in `assets/images/`, organized by subtopic:
+### Step 1 — Create the topic page
+
+Create `_projects/<your-topic-slug>.md`:
+
+```yaml
+---
+layout: topic
+title: "Your Topic Title"
+slug: your-topic-slug
+description: "A short description shown on the topic card."
+---
+```
+
+The `slug` must exactly match the filename (without `.md`) and becomes the URL: `/projects/your-topic-slug/`.
+
+### Step 2 — Add a card to the home and projects pages
+
+Open `index.md` and `projects/index.md` and add a card inside the `<div class="topic-grid">` block:
+
+```html
+<a class="topic-card" href="{{ '/projects/your-topic-slug/' | relative_url }}">
+  <h2>Your Topic Title</h2>
+  <p>Short description for the card</p>
+</a>
+```
+
+---
+
+## 3. Add a New Subtopic
+
+A subtopic sits under a topic and groups related articles (e.g. "Landscape" under "Photography").
+
+### Step 1 — Create the subtopic file
+
+Create `_projects/<topic-slug>/<subtopic-slug>.md`:
+
+```yaml
+---
+layout: subtopic
+title: "Subtopic Title"
+slug: subtopic-slug
+topic: topic-slug
+topic_title: "Topic Title"
+description: "Short description."
+---
+
+Write an overview paragraph here. This appears in a highlighted box at the top of the subtopic page.
+```
+
+- `topic` — must match the parent topic's `slug`
+- `slug` — must match the filename (without `.md`)
+
+### Step 2 — (Optional) Attach a PDF report
+
+Add a `pdf:` field to the front matter and place the file in `assets/pdfs/`:
+
+```yaml
+pdf: /assets/pdfs/your-report.pdf
+```
+
+---
+
+## 4. Add a New Article
+
+An article is a written page that lives under a subtopic.
+
+### Step 1 — Create the article file
+
+Create `_projects/<topic-slug>/<subtopic-slug>/<article-slug>.md`:
+
+```yaml
+---
+layout: article
+title: "Article Title"
+description: "One line summary shown in the subtopic article list."
+topic: topic-slug
+topic_title: "Topic Title"
+subtopic: subtopic-slug
+subtopic_title: "Subtopic Title"
+date: 2026-06-01
+tags: [tag1, tag2]
+---
+
+Write your article content here in Markdown.
+
+## Section Heading
+
+More content...
+```
+
+- `topic` / `subtopic` — must match the parent slugs exactly
+- `topic_title` / `subtopic_title` — display names used in breadcrumbs
+- `tags` — optional, shown as labels on the article
+
+The article automatically appears in the subtopic's article list.
+
+---
+
+## 5. Add Photos to an Article
+
+### Step 1 — Add image files
+
+Place images in `assets/images/`, organized by topic:
 
 ```
 assets/images/
@@ -67,80 +169,53 @@ assets/images/
     landscape/
       my-photo-01.jpg
       my-photo-02.jpg
-    street/
-    portrait/
 ```
 
-Keep file sizes under 1–2 MB per image for fast page loads.
+Keep files under 1–2 MB per image for fast page loads.
 
-### Step 2 — Create or open the article file
-
-Article files live in `_projects/<topic>/<subtopic>/your-article.md`.
-
-Example: `_projects/photography/landscape/rocky-mountain-shoot.md`
-
-### Step 3 — Add the front matter and photo_gallery list
+### Step 2 — Add photo_gallery to the article front matter
 
 ```yaml
----
-layout: article
-title: "Rocky Mountain Shoot"
-description: "A landscape session at RMNP in early spring."
-topic: photography
-topic_title: Photography
-subtopic: landscape
-subtopic_title: Landscape
-date: 2026-06-01
-tags: [landscape, nature, Colorado]
 photo_gallery:
   - src: /assets/images/photography/landscape/my-photo-01.jpg
     caption: "Bear Lake at sunrise"
   - src: /assets/images/photography/landscape/my-photo-02.jpg
     caption: "Trail Ridge Road overlook"
----
-
-Write your article content here in Markdown...
 ```
 
-- `src` — path to the image from the site root (required)
+- `src` — path from the site root (required)
 - `caption` — text shown below the image (optional)
 
-The photo grid renders automatically below your written content. Add as many entries to `photo_gallery` as you need.
+The photo grid renders automatically below your written content.
 
 ---
 
-## 3. Add a PDF Report to a Project
+## 6. Add a PDF Report to a Project
 
-PDFs are attached at the **subtopic** level (one report per project), not per article.
+### Step 1 — Add the PDF file
 
-### Step 1 — Add your PDF file
-
-Place your PDF in the `assets/pdfs/` folder:
+Place your PDF in `assets/pdfs/`:
 
 ```
-assets/pdfs/
-  my-project-report.pdf
+assets/pdfs/my-project-report.pdf
 ```
 
-### Step 2 — Open the subtopic file
-
-Subtopic files live at `_projects/<topic>/<subtopic>.md`.
-
-Example: `_projects/cu-boulder-embedded/piano-tiles-led.md`
-
-### Step 3 — Add the pdf field to the front matter
+### Step 2 — Add the pdf field to the subtopic front matter
 
 ```yaml
----
-layout: subtopic
-title: "Piano Tiles LED Game"
-slug: piano-tiles-led
-topic: cu-boulder-embedded
-topic_title: "CU Boulder: Embedded Systems Engineering Projects"
-description: "A Raspberry Pi-based Piano Tiles game."
-pdf: /assets/pdfs/piano-tiles-led-report.pdf
----
+pdf: /assets/pdfs/my-project-report.pdf
 ```
 
-The page will automatically display an embedded PDF viewer and a Download button.
-If the `pdf:` field is omitted, no viewer is shown.
+The page automatically shows an embedded viewer and a Download button. Omit `pdf:` to hide the viewer.
+
+---
+
+## Quick Reference
+
+| What to add | Where to create the file |
+|---|---|
+| New topic | `_projects/<topic-slug>.md` + card in `index.md` and `projects/index.md` |
+| New subtopic | `_projects/<topic-slug>/<subtopic-slug>.md` |
+| New article | `_projects/<topic-slug>/<subtopic-slug>/<article-slug>.md` |
+| Photos | `assets/images/<topic>/` |
+| PDF reports | `assets/pdfs/` |

@@ -210,7 +210,30 @@ The page automatically shows an embedded viewer and a Download button. Omit `pdf
 
 ---
 
-## 7. Add a YouTube Video to a Project
+## 7. Feature an Article on the Home Page
+
+Any article or subtopic can be featured in the "Featured Articles" section at the top of the home page.
+
+### Step 1 — Add featured: true to the front matter
+
+Open the article or subtopic `.md` file you want to feature and add one line:
+
+```yaml
+---
+layout: article
+title: "Board 4: Instrument Droid"
+description: "Thevenin Resistance/Voltage Measurement Droid with I2C"
+topic: ecen5730-pcb
+topic_title: "ECEN5730: PCB Design"
+featured: true
+---
+```
+
+The card will automatically appear in the Featured Articles section on the home page, showing the title, description, and topic name. To unfeature it, delete the line or set `featured: false`.
+
+---
+
+## 8. Add a YouTube Video to a Project
 
 YouTube videos are embedded at the **subtopic** level and appear between the overview box and the PDF viewer.
 
@@ -251,3 +274,4 @@ The video renders automatically as a centered, responsive 16:9 embed. Omit `yout
 | Photos | `assets/images/<topic>/` |
 | PDF reports | `assets/pdfs/` |
 | YouTube video | `youtube: VIDEO_ID` in subtopic front matter |
+| Feature on home page | `featured: true` in any article or subtopic front matter |

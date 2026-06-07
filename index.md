@@ -9,7 +9,57 @@ I'm an embedded systems engineering graduate student at CU Boulder with interest
 
 I am a flexible Engineer with background in: Digital Logic, Embedded Linux/Software, PCB, and Signal Integrity Measurements, looking mainly for FPGA/Verification positions.
 
-This site was created with help of Claude AI. I am embracing the changes AI will bring to industry, but still cautious on over-reliance on them.
+This site was created with help of Claude AI. I am willing to embrace the changes it will bring to industry, but still cautious on over-reliance on AI.
+
+{% assign featured = site.projects | where: "featured", true %}
+{% if featured.size > 0 %}
+## Featured Articles
+
+<div class="featured-carousel">
+  <button class="carousel-btn" id="carousel-prev" onclick="carouselMove(-1)">&#8592;</button>
+
+  <div class="carousel-track">
+    {% for item in featured %}
+    <a class="carousel-card{% if forloop.first %} active{% endif %}" href="{{ item.url | relative_url }}">
+      <h2>{{ item.title }}</h2>
+      {% if item.description %}<p class="featured-desc">{{ item.description }}</p>{% endif %}
+    </a>
+    {% endfor %}
+  </div>
+
+  <button class="carousel-btn" id="carousel-next" onclick="carouselMove(1)">&#8594;</button>
+</div>
+
+{% if featured.size > 1 %}
+<div class="carousel-dots">
+  {% for item in featured %}
+  <span class="carousel-dot{% if forloop.first %} active{% endif %}" onclick="carouselGoto({{ forloop.index0 }})"></span>
+  {% endfor %}
+</div>
+{% endif %}
+
+<script>
+  var current = 0;
+  var cards = document.querySelectorAll('.carousel-card');
+  var dots = document.querySelectorAll('.carousel-dot');
+
+  function carouselShow(index) {
+    cards.forEach(function(c) { c.classList.remove('active'); });
+    dots.forEach(function(d) { d.classList.remove('active'); });
+    cards[index].classList.add('active');
+    if (dots[index]) dots[index].classList.add('active');
+    current = index;
+  }
+
+  function carouselMove(dir) {
+    carouselShow((current + dir + cards.length) % cards.length);
+  }
+
+  function carouselGoto(index) {
+    carouselShow(index);
+  }
+</script>
+{% endif %}
 
 ## Topics
 

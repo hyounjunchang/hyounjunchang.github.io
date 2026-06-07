@@ -9,7 +9,7 @@ I'm an embedded systems engineering graduate student at CU Boulder with interest
 
 I am a flexible Engineer with background in: Digital Logic, Embedded Linux/Software, PCB, and Signal Integrity Measurements, looking mainly for FPGA/Verification positions.
 
-This site was created with help of Claude AI. I am embracing the changes it will bring to industry, but still cautious on over-reliance on AI.
+This site was created with help of Claude AI. I am embracing the changes AI will bring to industry, but still cautious on over-reliance on them.
 
 ## Topics
 

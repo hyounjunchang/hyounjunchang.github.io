@@ -4,6 +4,10 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 
+# Jekyll generated files
+feed.xml
+sitemap.xml
+
 # Bundler
 .bundle/
 vendor/

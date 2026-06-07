@@ -210,6 +210,37 @@ The page automatically shows an embedded viewer and a Download button. Omit `pdf
 
 ---
 
+## 7. Add a YouTube Video to a Project
+
+YouTube videos are embedded at the **subtopic** level and appear between the overview box and the PDF viewer.
+
+### Step 1 — Find the video ID
+
+The video ID is the part after `youtu.be/` or `?v=` in the URL:
+
+```
+https://youtu.be/vM8HINWoOFc        → ID is vM8HINWoOFc
+https://youtube.com/watch?v=vM8HINWoOFc  → ID is vM8HINWoOFc
+```
+
+### Step 2 — Add the youtube field to the subtopic front matter
+
+```yaml
+---
+layout: subtopic
+title: "My Project"
+slug: my-project
+topic: ecen5730-pcb
+topic_title: "ECEN5730: PCB Design"
+description: "Project description."
+youtube: vM8HINWoOFc
+---
+```
+
+The video renders automatically as a centered, responsive 16:9 embed. Omit `youtube:` to hide it.
+
+---
+
 ## Quick Reference
 
 | What to add | Where to create the file |
@@ -219,3 +250,4 @@ The page automatically shows an embedded viewer and a Download button. Omit `pdf
 | New article | `_projects/<topic-slug>/<subtopic-slug>/<article-slug>.md` |
 | Photos | `assets/images/<topic>/` |
 | PDF reports | `assets/pdfs/` |
+| YouTube video | `youtube: VIDEO_ID` in subtopic front matter |

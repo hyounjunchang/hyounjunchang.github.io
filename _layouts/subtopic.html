@@ -18,6 +18,10 @@ layout: default
   {{ content }}
 </div>
 
+{% if page.youtube %}
+{% include youtube.html id=page.youtube title=page.title %}
+{% endif %}
+
 {% if page.pdf %}
 <div class="pdf-section">
   <div class="pdf-toolbar">

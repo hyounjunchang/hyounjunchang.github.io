@@ -1,9 +1,10 @@
 title: Hyounjun (HJ) Chang | Portfolio
-email: hyounjun.chang@example.com
-description: "Embedded systems engineer — Linux, C, hardware projects"
+email: hyounjun.chang@colorado.edu
+description: "Looking for FPGA/Verification Roles or in Related Fields"
+
 url: "https://hyounjunchang.github.io"
 baseurl: ""
-author: Hyounjun Chang
+author: Hyounjun (HJ) Chang
 
 collections:
   projects:

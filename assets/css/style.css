@@ -142,3 +142,8 @@ a:hover { text-decoration: underline; }
 }
 .footer a { color: var(--muted); }
 .footer a:hover { color: var(--accent); }
+
+.container > p,
+.home-content p {
+  margin-bottom: 1rem;
+}

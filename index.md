@@ -5,7 +5,11 @@ title: Home
 
 ## Welcome
 
-I'm an embedded systems engineering student at CU Boulder with interests in hardware, software, photography, and quantitative finance.
+I'm an embedded systems engineering graduate student at CU Boulder with interests in embedded systems, photography, and quantitative finance. This website is a portfolio of my personal projects, and articles about my hobbies.
+
+I am a flexible Engineer with background in: Digital Logic, Embedded Linux/Software, PCB, and Signal Integrity Measurements, looking mainly for FPGA/Verification positions.
+
+This site was created with help of Claude AI. I am embracing the changes it will bring to industry, but still cautious on over-reliance on AI.
 
 ## Topics
 

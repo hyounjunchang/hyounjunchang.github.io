@@ -5,4 +5,15 @@ slug: ecen5730-pcb
 description: "Printed circuit board design reports from from ECEN 5730."
 ---
 
-These projects were shared with instructor (Prof. Tim Sweettlen) approval. All PCB designs were done on Altium Designer. Prof. Bogatin's Youtube playlist regarding Altium designer can be found [here](https://www.youtube.com/channel/UCNb5R0BXy-6Umqy6nQhtOJw/playlists).
+This page includes reports for PCB created for ECEN5730 at CU Boulder for Fall 2025.
+
+These projects were shared with instructor (Prof. Tim Swettlen) approval. All PCB designs were done on Altium Designer. Prof. Bogatin's Youtube playlist regarding Altium designer can be found [here](https://www.youtube.com/channel/UCNb5R0BXy-6Umqy6nQhtOJw/playlists).
+
+Some topics covered in this class include:
+```
+- Basic circuit lab equipment use (Oscilloscope, Signal Generators, Multimeter)
+- Good PCB design techniques (PDNs, ground planes, routing, etc.)
+- Assembly, debugging and analyzing PCB
+- Decoupling Capacitors, Crosstalk, Loop Inductance, Differential Signals
+- Sensors, Microcontroller Programming, I2C, and ADC
+```

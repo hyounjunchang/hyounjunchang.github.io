@@ -11,6 +11,8 @@ I am a flexible Engineer with background in: Digital Logic, Embedded Linux/Softw
 
 This site was created with help of Claude AI. I am willing to embrace the changes it will bring to industry, but still cautious on over-reliance on AI.
 
+All class-related projects shared on this site either have Instructor approval, or are unique Individual/Group projects, separate from other groups.
+
 {% assign featured = site.projects | where: "featured", true %}
 {% if featured.size > 0 %}
 ## Featured Articles

@@ -11,4 +11,4 @@ featured: true
 
 A custom PCB for an Arduino board was designed (Golden Arduino), functioning on Arduino IDE. Pin headers were placed exactly the same as a traditional Arduino board for compatibility. Parts were manually assembled on manufactured PCB, and signals were measured for comparison between a commercial Arduino board and the Golden Arduino board.
 
-There was a failure with the Reset Circuit rendering the CH340g (USB-to-TTL) unusable. This problem persisted on Board 4, and the root cause are the size of decoupling capacitors (too large), which affects the circuitry.
+There was a failure with the Reset Circuit rendering the CH340g (USB-to-TTL) unusable. This problem persisted on Board 4, and the root cause are the size of decoupling capacitors (too large), which affects  rise/fall time.

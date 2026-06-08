@@ -12,6 +12,8 @@ layout: default
   <p class="topic-desc">{{ page.description }}</p>
 </div>
 
+{{ content }}
+
 <div class="subtopic-grid">
   {% assign subtopics = site.projects | where: "layout", "subtopic" | where: "topic", page.slug %}
   {% for subtopic in subtopics %}

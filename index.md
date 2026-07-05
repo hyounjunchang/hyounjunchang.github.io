@@ -7,14 +7,19 @@ title: Home
 
 I'm a MS EE student at CU Boulder, with focus on embedded systems engineering.
 
-I am looking to be a "jack-of-all-trades" kind of engineer, learning about various topics at some depth. You will see a reflection of this on the topics I am acquainted with:
+I am looking to be a "jack-of-all-trades" kind of engineer (with focus on FPGA). You will see a reflection of this on the topics I am acquainted on this website:
 
-- Digital Logic Design with HDL (FPGA, CPLD)
-- Signal Integrity (PCB, Digital Circuits) and Measurement Analysis
-- Embedded Linux, and RTOS
-- High Level Programming (My undergrad was much closer to CS than EE)
+```
+- Digital Logic Design with HDL (FPGA, CPLD) (Vivado/Quartus/Libero)
+- FPGA System Design (Nios II, Microblaze) and Timing Analysis (setup/delay/clock/throughput)
+- Communication Buses/Protocols (SPI, I2C, Memory Timing)
+- Signal Integrity (PCB, High Speed Digital), Measurement, and Analysis (Oscope/SigGen/VNA)
+- Embedded Linux (Buildroot), RTOS, Kernel Programming
+- Microprocessor programming (Bare-metal/Vendor-IDE) and IoT Protocols (Bluetooth/MQTT)
+- Higher Level Programming (C++/Boost, Python)_
+```
 
-All class-related projects shared on this site either have Instructor approval, or are unique Individual/Group projects, separate from other groups.
+All class-related projects shared on this site either have Instructor approval, or are Individual/Group projects that doesn't reveal Instructor's IP on coursework.
 
 {% assign featured = site.projects | where: "featured", true %}
 {% if featured.size > 0 %}

@@ -23,12 +23,4 @@ permalink: /projects/
     <h2>ECEN5863: FPGA System Design</h2>
     <p>HDL, synthesis, soft-core CPUs, AXI peripherals</p>
   </a>
-  <a class="topic-card" href="{{ '/projects/photography/' | relative_url }}">
-    <h2>Photography</h2>
-    <p>Landscape, street, and portrait photography</p>
-  </a>
-  <a class="topic-card" href="{{ '/projects/quantitative-finance/' | relative_url }}">
-    <h2>Quantitative Finance</h2>
-    <p>Equity research, sector modeling, and derivatives</p>
-  </a>
 </div>

@@ -7,17 +7,14 @@ title: Home
 
 I'm a MS EE student at CU Boulder, with focus on embedded systems engineering.
 
-I am looking to be a "jack-of-all-trades" kind of engineer (with focus on FPGA). You will see a reflection of this on the topics I am acquainted on this website:
+I am looking to be a "jack-of-all-trades" kind of engineer, learning about various topics at some depth. You will see a reflection of this on the topics I am acquainted with:
 
-- _Digital Logic Design with HDL (FPGA, CPLD) (Vivado/Quartus/Libero)_
-- _FPGA System Design (Nios II, Microblaze) and Timing Analysis (setup/delay/clock/throughput)_
-- _Communication Buses/Protocols (SPI, I2C, Memory Timing)_
-- _Signal Integrity (PCB, High Speed Digital), Measurement, and Analysis (Oscope/SigGen/VNA)_
-- _Embedded Linux (Buildroot), RTOS, Kernel Programming_
-- _Microprocessor programming (Bare-metal/Vendor-IDE) and IoT Protocols (Bluetooth/MQTT)_
-- _Higher Level Programming (C++/Boost, Python)_
+- Digital Logic Design with HDL (FPGA, CPLD)
+- Signal Integrity (PCB, Digital Circuits) and Measurement Analysis
+- Embedded Linux, and RTOS
+- High Level Programming (My undergrad was much closer to CS than EE)
 
-All class-related projects shared on this site either have Instructor approval, or are Individual/Group projects that doesn't reveal Instructor's IP on coursework.
+All class-related projects shared on this site either have Instructor approval, or are unique Individual/Group projects, separate from other groups.
 
 {% assign featured = site.projects | where: "featured", true %}
 {% if featured.size > 0 %}
@@ -87,13 +84,5 @@ All class-related projects shared on this site either have Instructor approval, 
   <a class="topic-card" href="{{ '/projects/ecen5863-fpga/' | relative_url }}">
     <h2>ECEN5863: FPGA System Design</h2>
     <p>HDL, synthesis, soft-core CPUs, AXI peripherals</p>
-  </a>
-  <a class="topic-card" href="{{ '/projects/photography/' | relative_url }}">
-    <h2>Photography</h2>
-    <p>Landscape, street, and portrait photography</p>
-  </a>
-  <a class="topic-card" href="{{ '/projects/quantitative-finance/' | relative_url }}">
-    <h2>Quantitative Finance</h2>
-    <p>Equity research, sector modeling, and derivatives</p>
   </a>
 </div>

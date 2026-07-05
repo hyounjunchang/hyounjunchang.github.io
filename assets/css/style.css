@@ -116,6 +116,17 @@ a:hover { text-decoration: underline; }
 .article-content code { font-family: 'Courier New', monospace; font-size: 0.9rem; color: #7dd3fc; }
 .article-content pre code { color: var(--text); }
 
+.container pre {
+  background: #0a0c12;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+.container code { font-family: 'Courier New', monospace; font-size: 0.9rem; color: #7dd3fc; }
+.container pre code { color: var(--text); font-weight: normal; }
+
 .article-nav { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); }
 
 .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
@@ -157,4 +168,21 @@ a:hover { text-decoration: underline; }
 .container > ul li,
 .home-content ul li {
   margin-bottom: 0.4rem;
+}
+
+.code-list {
+  background: #0a0c12;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem 1rem 1rem 2rem;
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+}
+
+.code-list li {
+  margin-bottom: 0.5rem;
+}
+
+.code-list li:last-child {
+  margin-bottom: 0;
 }

@@ -10,27 +10,26 @@ This page includes articles related to ECEN5863: FPGA System Design. Equivalent 
 I took ECEN5863 in Fall 2024, and worked as a TA under Prof. Scherr in Fall 2025. I also worked as Student Assistant for Prof. Scherr's final class ECEN 5003: Advanced Programmable logic.
 
 Some topics covered in ECEN5863 include:
-```
-- FPGA/CPLD Architecture and Variations (FLASH/SRAM, Size/Speed, Industrial/Commercial)
-- Hardware Description Langauge (Verilog, VHDL), and Testbenches
-- Timing Analysis (Fmax, Setup/Hold Violations)
-- Designing Systems on Quartus/Libero with Soft/Hard Processors
-- Linux and C programming on FPGA
-- Clock Trees and Asynchronous Design
-```
+
+- _FPGA/CPLD Architecture and Variations (FLASH/SRAM, Size/Speed, Industrial/Commercial)_
+- _Hardware Description Langauge (Verilog, VHDL), and Testbenches_
+- _Timing Analysis (Fmax, Setup/Hold Violations)_
+- _Designing Systems on Quartus/Libero with Soft/Hard Processors_
+- _Linux and C programming on FPGA_
+- _Clock Trees and Asynchronous Design_
+
 
 Following Boards were used in this class:
-```
-- Terasic DE10-Lite
-- Xilinx Pynq
-- Terasic DE1-SoC
-```
+
+- _Terasic DE10-Lite_
+- _Xilinx Pynq_
+- _Terasic DE1-SoC_
+
 
 Some topics further covered in ECEN5003 include:
-```
-- SystemVerilog and Testbenches (Not covered in ECEN5863)
-- Adder/Multiplier/FPU Design
-- CPU Architectures (ARM, RISC-V)
-- Math functions and DSP
-- Designing for Speed/Power/Throughput
-```
+
+- _SystemVerilog and Testbenches (Not covered in ECEN5863)_
+- _Adder/Multiplier/FPU Design_
+- _CPU Architectures (ARM, RISC-V)_
+- _Math functions and DSP_
+- _Designing for Speed/Power/Throughput_

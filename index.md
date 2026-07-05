@@ -5,13 +5,19 @@ title: Home
 
 ## Welcome
 
-I'm an embedded systems engineering graduate student at CU Boulder with interests in embedded systems, photography, and quantitative finance. This website is a portfolio of my personal projects, and articles about my hobbies.
+I'm a MS EE student at CU Boulder, with focus on embedded systems engineering.
 
-I am a flexible Engineer with background in: Digital Logic, Embedded Linux/Software, PCB, and Signal Integrity Measurements, looking mainly for FPGA/Verification positions.
+I am looking to be a "jack-of-all-trades" kind of engineer (with focus on FPGA). You will see a reflection of this on the topics I am acquainted on this website:
 
-This site was created with help of Claude AI. I am willing to embrace the changes it will bring to industry, but still cautious on over-reliance on AI.
+- _Digital Logic Design with HDL (FPGA, CPLD) (Vivado/Quartus/Libero)_
+- _FPGA System Design (Nios II, Microblaze) and Timing Analysis (setup/delay/clock/throughput)_
+- _Communication Buses/Protocols (SPI, I2C, Memory Timing)_
+- _Signal Integrity (PCB, High Speed Digital), Measurement, and Analysis (Oscope/SigGen/VNA)_
+- _Embedded Linux (Buildroot), RTOS, Kernel Programming_
+- _Microprocessor programming (Bare-metal/Vendor-IDE) and IoT Protocols (Bluetooth/MQTT)_
+- _Higher Level Programming (C++/Boost, Python)_
 
-All class-related projects shared on this site either have Instructor approval, or are unique Individual/Group projects, separate from other groups.
+All class-related projects shared on this site either have Instructor approval, or are Individual/Group projects that doesn't reveal Instructor's IP on coursework.
 
 {% assign featured = site.projects | where: "featured", true %}
 {% if featured.size > 0 %}
